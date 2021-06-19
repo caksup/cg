@@ -1,0 +1,469 @@
+<!-- Created by Abhi -->
+
+<!-- 
+    Created by: abhi 
+   Date: 9/12/2019 
+   Timestamp: 1575919345
+   
+_____________________________________________
+   
+   Use this to create awesome Shadows , 
+   Background  animation , Border
+   leave a upvote if it helps :) 
+ _________________________________________  
+   
+   
+   •Info:-
+   
+   CSS Syntax for box-shadow
+   
+box-shadow: none|h-offset v-offset blur spread color |inset|initial|inherit;
+
+_______________________________________
+   -->
+   
+   
+   
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Shadow ,Bg anim Generator!</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   </head>
+   
+   
+   
+   <body>
+      <div id="toast">
+         <div id="img">   <i class="material-icons">info_outline</i></div>
+         <div id="desc"></div>
+      </div>
+      <div class="toolbar">
+         <div class="tabs">
+            <ul>
+               <li class="tabitem active"><a href="#main">Shadow<span></span></a></li>
+               <li class="tabitem"><a href="#gra">Background<span></span></a></li>
+               <li class="tabitem"><a href="#bor">Border<span></span></a></li>
+            </ul>
+         </div>
+      </div>
+      
+      <div id="loader">
+          
+          
+          <div class="folding-cube">
+  <div class="cube1 cube"></div>
+  <div class="cube2 cube"></div>
+  <div class="cube4 cube"></div>
+  <div class="cube3 cube"></div>
+</div>
+          
+          
+      </div>
+      
+      
+      <div class="content"/>
+      <div id="main" class="box show">
+         <div class="container">
+            <div class="tox" id="tox"></div>
+         </div>
+         <div class="panel">
+            <ul id="ccc">
+               <li>Choose color: <input onchange="test(this)" type="color" value="#ff0000" id="color"/></li>
+               <li>Blur: <br /> <input min="0" max="50" type="range" id="blur" value="0"/> </li>
+               <li>Extend:<br /> <input min="0" max="50" type="range" id="ex" value="0"/> </li>
+               <li>Horizontal length: <input type="range" min="0" max="50" id="hor" value="0"/></li>
+               <li>Veritcal length:<input type="range" min="0" max="50" id="vertical" value="0"/>  </li>
+               <li id="last">Outset   <label class="switch"><input onclick="check()" id="swiData" type="checkbox" /> <div></div></label> Inset</li>
+            </ul>
+            
+            
+    <input onclick="copy(this.id)" class="text" id="data"  type="text">
+ 
+         </div>
+         <p id="info">© Made by Abhi || CSS generator </p>
+      </div>
+      
+      
+      <div id="gra" class="box">
+         <div class="container" id="bg">
+         </div>
+         <div class="panel">
+            <button id="one" class="grabtn">Background to top</button>
+            <button id="two" class="grabtn">Background  to left</button>
+            <button id="three" class="grabtn">Background  to right</button>
+            <button id="four" class="grabtn">Background  to bottom</button>
+         </div>
+         <div id="gradient" class="container">
+            <p onclick="copy(this.id)" id="code"></p>
+         </div>
+      </div>
+      <div id="bor" class="box">
+         <div class="container">
+            <div class="tox" id="dox"></div>
+         </div>
+         <div class="panel">
+            <div class="dropdown">
+               <button onclick="show()" class="dropbtn">Select border style</button>
+               <div id="Dropdown" class="dropdown-content">
+                  <ul class="option">
+                     <li>Solid</li>
+                     <li >Dashed</li>
+                     <li>dotted</li>
+                     <li>double</li>
+                     <li>inset</li>
+                     <li>outset</li>
+                     <li>ridge</li>
+                     <li>inherit</li>
+                     <li>hidden</li>
+                     <li>groove</li>
+                     <li>none</li>
+                  </ul>
+               </div>
+            </div>
+            <ul id="ccc">
+               <li>Choose color: <input onchange="border(this)" type="color" value="#ff0000" id="Bcolor"/></li>
+               <hr>
+               <li>Border width: <input type="range" min="0" max="50" id="width" value="0"/>  </li>
+               <li>Top left: <br /> <input min="0" max="50" type="range" id="topL" value="0"/> </li>
+               <li>Top right: <br /> <input min="0" max="50" type="range" id="topR" value="0"/> </li>
+               <li>Bottom left : <input type="range" min="0" max="50" id="Bl" value="0"/></li>
+               <li>Bottom right:<input type="range" min="0" max="50" id="Br" value="0"/>  </li>
+               <li>Full corners: <input type="range" min="0" max="50" id="full" value="0"/>  </li>
+            </ul>
+            <input onclick="copy(this.id)" class="text" id="data-border"  type="text">
+            <input onclick="copy(this.id)" class="text" id="datborder"  type="text">
+         </div>
+         <p id="info">© Made by Abhi || CSS generator </p>
+      </div>
+      <script>
+         var list = document.querySelectorAll("ul.option li");
+         
+         Array.prototype.slice.call(list).forEach(function(listItem){
+         listItem.addEventListener('click', function(e){
+         $(".dropbtn").text(this.innerHTML)
+         updateout();
+         });
+         });
+         
+         
+         function show() {
+         document.getElementById("Dropdown").classList.toggle("show");
+         }
+         
+         window.onclick = function(event) {
+         if (!event.target.matches('.dropbtn')) {
+         var dropdowns = document.getElementsByClassName("dropdown-content");
+         var i;
+         for (i = 0; i < dropdowns.length; i++) {
+           var openDropdown = dropdowns[i];
+           if (openDropdown.classList.contains('show')) {
+             openDropdown.classList.remove('show');
+           }
+         }
+         }
+         }
+      </script>
+      <script>toast("Now create awesome shadows ,<br> Background  animations easily");
+         function msg() {
+         toast("Tap on input field <br> to copy the code!");
+         }
+         setTimeout(msg, 6000);
+         function toast(text) {
+         var x = document.getElementById("toast");
+         document.getElementById("desc").innerHTML = text;
+         
+         x.className = "show";
+         setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
+         }
+      </script>
+      <script>
+         function test(t) {
+         
+             
+         update(t.value);
+         }
+         
+         
+         $(document).on('input', '#blur', function() {
+         
+         update($(this).val());
+         });
+         $(document).on('input', '#hor', function() {
+         
+         update($(this).val());
+         });
+         
+          $(document).on('input', '#vertical', function() {
+         
+         update($(this).val());
+         });
+         
+         $(document).on('input', '#ex', function() {
+         
+         update($(this).val());
+         });
+         
+         
+         $(document).on('input', '#swiData', function() {
+         
+         update($(this).val());
+         });
+         
+         
+         function update(data) {
+             
+             var blur = document.getElementById("blur").value;
+         
+         var horizontal = document.getElementById("hor").value;
+         
+         var vertical = document.getElementById("vertical").value;
+         
+         var spread = document.getElementById("ex").value;
+         
+         var color = document.getElementById("color").value;
+         
+         if (document.getElementById("swiData").checked) {
+                 
+            var output = "box-shadow: " + "inset " + horizontal + "px " + vertical + "px " + blur + "px " +  spread + "px " + color + ";";
+              
+                 
+             } else {
+                 
+                 var output = "box-shadow: " + horizontal + "px " + vertical + "px " + blur + "px " +  spread + "px " + color + ";";
+         
+             }
+         
+         
+             
+             $("#data").val(output);
+              $("#tox").css({'box-shadow': horizontal + 'px ' + vertical +'px ' +blur + 'px ' +  spread + 'px ' + color});
+                  
+            
+         }
+         
+         
+         
+         
+         function border(t) {
+         
+         updateout(t.value);
+         }
+         
+         
+         $(document).on('input', '#topL', function() {
+         
+         updatebor($(this).val());
+         });
+         $(document).on('input', '#topR', function() {
+         
+         updatebor($(this).val());
+         });
+         
+          $(document).on('input', '#Bl', function() {
+         
+         updatebor($(this).val());
+         });
+         
+         $(document).on('input', '#Br', function() {
+         
+         updatebor($(this).val());
+         });
+         
+         
+         $(document).on('input', '#width', function() {
+         
+         updateout($(this).val());
+         });
+         
+         
+         
+         $(document).on('input', '#full', function() {
+         
+         updatefull($(this).val());
+         });
+         
+         
+         function updatebor(data) {
+         var topL = document.getElementById("topL").value;
+         
+         var topR = document.getElementById("topR").value;
+         
+         var bl = document.getElementById("Bl").value;
+         
+         var br = document.getElementById("Br").value;
+         
+         
+         
+         var borOutput  = "border-radius: " + topL + "px " + topR + "px " + br + "px " +  br + "px;";
+         
+                   
+              $("#data-border").val(borOutput);
+                    
+              $("#dox").css({'border-radius': topL + 'px ' + topR +'px ' +bl + 'px ' +  br + 'px '});   
+              
+         }
+         
+         function updatefull(data) {
+             var full = document.getElementById("full").value;
+             
+         var borOutput  = "border-radius: " + full + "px " + full + "px " + full + "px " +  full + "px;";
+                  
+              $("#data-border").val(borOutput);
+                    
+              $("#dox").css({'border-radius': full + "px " + full + "px " + full + "px " +  full + "px"});   
+             
+         }
+         
+         function  updateout(data) {
+             var color = document.getElementById("Bcolor").value;
+         
+         var width = document.getElementById("width").value;
+         
+         if($(".dropbtn").html()==="Select border style") {
+             
+             var type = "solid";
+             
+         } else {
+             
+             var type = $(".dropbtn").html();
+             
+         }
+         
+         
+         
+             var outpt = "border: " + width + "px " + type + " " + color + ";";
+             
+             $("#datborder").val(outpt);
+             
+              $("#dox").css({'border': width +'px '+ type + color});   
+             
+         }
+         
+         
+         $("#one").click(function(){
+          $("#gradient").show();
+          $("#bg").css("animation","top 8s both");
+             $("#code").text(`.top {
+         -webkit-animation: top 8s both;
+                 animation: top 8s both;
+         }
+         
+         @-webkit-keyframes top {
+         0% {
+         background-position: 50% 100%;
+         }
+         100% {
+         background-position: 50% 0%;
+         }
+         }
+         @keyframes top {
+         0% {
+         background-position: 50% 100%;
+         }
+         100% {
+         background-position: 50% 0%;
+         }
+         }`)});
+             
+         $("#two").click(function(){
+             $("#gradient").show();
+             $("#bg").css("animation","left 8s both");
+             $("#code").text(`.left {
+         -webkit-animation: left 8s both;
+                 animation: left 8s both;
+         }
+         @-webkit-keyframes left {
+         0% {
+         background-position: 100% 50%;
+         }
+         100% {
+         background-position: 0% 50%;
+         }
+         }
+         @keyframes left {
+         0% {
+         background-position: 100% 50%;
+         }
+         100% {
+         background-position: 0% 50%;
+         }
+         }
+         `)});
+         
+         
+         $("#three").click(function(){
+         $("#gradient").show();
+         $("#bg").css("animation","right 8s both");
+             $("#code").text(`
+             .right {
+         -webkit-animation: right 8s both;
+                 animation: right 8s both;
+         }
+         @-webkit-keyframes right {
+         0% {
+         background-position: 0% 50%;
+         }
+         100% {
+         background-position: 100% 50%;
+         }
+         }
+         @keyframes right {
+         0% {
+         background-position: 0% 50%;
+         }
+         100% {
+         background-position: 100% 50%;
+         }
+         }
+         
+             `)});
+             $("#four").click(function(){
+         $("#gradient").show();
+         $("#bg").addClass(".bottom");
+         $('#bg').css("animation","bottom 8s both");
+             $("#code").text(`
+             .bottom {
+         -webkit-animation: bottom 8s both;
+                 animation: bottom 8s both;
+         }
+         
+         @-webkit-keyframes bottom {
+         0% {
+         background-position: 50% 0%;
+         }
+         100% {
+         background-position: 50% 100%;
+         }
+         }
+         @keyframes bottom {
+         0% {
+         background-position: 50% 0%;
+         }
+         100% {
+         background-position: 50% 100%;
+         }
+         }
+         
+             `)});
+             function copy(data) {
+         toast("Code successfully copied ✔");
+         var copyText = document.getElementById(data);
+         
+         
+         copyText.select();
+         
+         document.execCommand("copy");
+         }
+         
+         
+         function check() {
+             
+              update(data);
+             
+             
+         }
+      </script>
+   </body>
+</html>
