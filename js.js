@@ -1,7 +1,3 @@
-
-
-alert("A simple CSS generator to help you deal out CSS easily \n \n leave a comment for improvement");
-
 window.onload = function() {
     var heart = document.getElementsByClassName("heart");
     var classname = document.getElementsByClassName("tabitem");
